@@ -380,7 +380,7 @@ async function loadReceipts() {
   if (!state.siteId || !state.listId) return;
   state.loading = true; render();
   try {
-    const data = await graphGet(`/sites/${state.siteId}/lists/${state.listId}/items?expand=fields&$top=500&$orderby=fields/Created desc`);
+    const data = await graphGet(`/sites/${state.siteId}/lists/${state.listId}/items?expand=fields&$top=500`);
     state.receipts = data.value.map(item => ({
       id: item.id,
       date: item.fields.Paivamaara || '',
